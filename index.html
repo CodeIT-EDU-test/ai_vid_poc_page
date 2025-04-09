@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .background {
+                position: fixed;
+                left:0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background-image: url(page-title-bg.jpg);
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+        }
+        .background::before {
+               content: "";
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    background-color: #362b78;
+        }
+        .loader {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            z-index: 2;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .loader_hide {
+            display: none;
+        }
+    </style>
+</head>
+<body class="body">
+
+<!-- In your <head> tag -->
+<script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+<style>
+  #webchat .bpWebchat {
+    position: fixed;        /* or absolute */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    max-height: 50%;
+    max-width: 50%;
+  }
+
+  #webchat .bpFab {
+    display: none;
+  }
+
+</style>
+<div class="background"></div>
+<div class="loader"><span>Loading...</span></div>
+<!-- Put this on your page BEFORE the script below -->
+<div id="webchat" style="width: 500px; height: 500px;"></div>
+
+<!-- In your <body> tag -->
+<script>
+  window.botpress.on("webchat:ready", () => {
+    var element = document.querySelector(".loader")
+    element.classList.add("loader_hide")
+    window.botpress.open();
+  });
+  window.botpress.init({
+  "botId": "02c6f314-721f-4b3b-89d9-4926e5513375",
+  "configuration": {
+    "website": {},
+    "email": {},
+    "phone": {},
+    "termsOfService": {},
+    "privacyPolicy": {},
+    "color": "#2b6cae",
+    "variant": "solid",
+    "themeMode": "light",
+    "fontFamily": "inter",
+    "radius": 1
+  },
+  "clientId": "638d4d66-cccb-4519-8e1d-3c4824f52eca",
+  "selector": "#webchat"
+});
+</script>
+
+
+</body>
+</html>
