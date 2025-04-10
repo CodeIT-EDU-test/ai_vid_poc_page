@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <!-- In your <head> tag -->
+<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+<style>
+  #webchat .bpWebchat {
+    position: fixed;        /* or absolute */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    max-height: 50%;
+    max-width: 50%;
+  }
+
+  #webchat .bpFab {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<!-- Put this on your page BEFORE the script below -->
+<div id="webchat" style="width: 500px; height: 500px;"></div>
+
+<!-- In your <body> tag -->
+<script>
+  window.botpress.on("webchat:ready", () => {
+    window.botpress.open();
+  });
+  window.botpress.init({
+  "botId": "782c77f1-1da3-4006-8ccf-21e9be560ac7",
+  "configuration": {
+    "website": {},
+    "email": {},
+    "phone": {},
+    "termsOfService": {},
+    "privacyPolicy": {},
+    "color": "#3B82F6",
+    "variant": "solid",
+    "themeMode": "light",
+    "fontFamily": "inter",
+    "radius": 1
+  },
+  "clientId": "77cedde7-af54-41de-80a6-df5155f3758f",
+  "selector": "#webchat"
+});
+</script>
+
+</script>
+</body>
+</html>
